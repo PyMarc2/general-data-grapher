@@ -20,7 +20,7 @@ class App(QApplication):
         self.main_view.setWindowTitle("PyGrapher")
 
     def splash(self):
-        pixmap = QPixmap("REDCO_logo_1.png")
+        pixmap = QPixmap("pyg-icon.png")
         smallerPixmap = pixmap.scaled(512, 512, Qt.KeepAspectRatio, Qt.SmoothTransformation)
         splash = QSplashScreen(smallerPixmap, Qt.WindowStaysOnTopHint)
         # splash.setMask(smallerPixmap.mask())
@@ -35,19 +35,6 @@ class App(QApplication):
         time.sleep(1)
         self.processEvents()
 
-    def newSplash(self):
-        start = time.time()
-        pixmap = QPixmap("images/ABB_logo.png")
-        smallerPixmap = pixmap.scaled(512, 512, Qt.KeepAspectRatio, Qt.SmoothTransformation)
-        splash = LoadingDotsSplash(smallerPixmap)
-        splash.setEnabled(False)
-        splash.show()
-        self.processEvents()
-        while time.time() < start + 6:
-            self.processEvents()
-
-        splash.anim.close()
-
 
 def main():
     # Makes the icon in the taskbar as well.
@@ -55,7 +42,7 @@ def main():
     ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(appID)
 
     app = App(sys.argv)
-    app.setWindowIcon(QIcon("REDCO_icon_1_128.png"))
+    app.setWindowIcon(QIcon("pyg-icon-2.png"))
     sys.exit(app.exec_())
 
 
