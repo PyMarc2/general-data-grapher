@@ -21,19 +21,10 @@ class App(QApplication):
 
     def splash(self):
         pixmap = QPixmap("pyg-icon.png")
-        smallerPixmap = pixmap.scaled(512, 512, Qt.KeepAspectRatio, Qt.SmoothTransformation)
-        splash = QSplashScreen(smallerPixmap, Qt.WindowStaysOnTopHint)
-        # splash.setMask(smallerPixmap.mask())
+        smaller_pixmap = pixmap.scaled(300, 300, Qt.KeepAspectRatio, Qt.SmoothTransformation)
+        splash = QSplashScreen(smaller_pixmap, Qt.WindowStaysOnTopHint)
         splash.show()
-        splash.showMessage("Version check ...")
-        time.sleep(1)
-        self.processEvents()
-        splash.showMessage("Loading DLLs ...")
-        time.sleep(1)
-        self.processEvents()
-        splash.showMessage("Establishing SAP connection ...")
-        time.sleep(1)
-        self.processEvents()
+        time.sleep(3)
 
 
 def main():
@@ -42,7 +33,7 @@ def main():
     ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(appID)
 
     app = App(sys.argv)
-    app.setWindowIcon(QIcon("pyg-icon-2.png"))
+    app.setWindowIcon(QIcon("pyg-icon.png"))
     sys.exit(app.exec_())
 
 

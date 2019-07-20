@@ -10,10 +10,20 @@ class DataLoaderModel(QObject):
     def __init__(self):
         super(DataLoaderModel, self).__init__()
         self._dataFilesDict = {}
+        self._selectedDataFile = ''
 
     @property
     def dataFilesDict(self):
         return self._dataFilesDict
+
+    @property
+    def selectedDataFile(self):
+        return self._selectedDataFile
+
+    @selectedDataFile.setter
+    def selectedDataFile(self, value):
+        # do some filtering here
+        self._selectedDataFile = value
 
     def add_dataFile(self, absPath: str):
         if absPath not in self._dataFilesDict.items():
@@ -31,6 +41,9 @@ class DataLoaderModel(QObject):
             self.s_update_dataFileDict.emit()
         else:
             pass
+
+    def delete_dataFile(self):
+        pass
 
 
 class Test_DataLoaderModel(unittest.TestCase):
