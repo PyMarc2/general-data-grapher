@@ -28,6 +28,7 @@ class CustomLineEdit(QLineEdit):
         self.anim_redFlash = QVariantAnimation(self, startValue=QColor(255, 127, 127),
                                                      endValue=QColor(255, 255, 255),
                                                      duration=1000)
+        
         self.anim_redFlash.valueChanged.connect(self.changeBackground)
         self.anim_redFlash.start()
 
