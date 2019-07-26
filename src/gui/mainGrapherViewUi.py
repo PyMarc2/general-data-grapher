@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'mainGrapherViewUi.ui'
+#
+# Created by: PyQt5 UI code generator 5.12.2
+#
+# WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
@@ -48,24 +55,24 @@ class Ui_grapherWidget(object):
         self.horizontalLayout.addWidget(self.widget_2)
         self.tabWidget.addTab(self.tab_data, "")
         self.gridLayout.addWidget(self.tabWidget, 2, 0, 1, 1)
-        self.widget_3 = QtWidgets.QWidget(grapherWidget)
+        self.DataManagerWidget = QtWidgets.QWidget(grapherWidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(2)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.widget_3.sizePolicy().hasHeightForWidth())
-        self.widget_3.setSizePolicy(sizePolicy)
-        self.widget_3.setObjectName("widget_3")
-        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.widget_3)
+        sizePolicy.setHeightForWidth(self.DataManagerWidget.sizePolicy().hasHeightForWidth())
+        self.DataManagerWidget.setSizePolicy(sizePolicy)
+        self.DataManagerWidget.setObjectName("DataManagerWidget")
+        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.DataManagerWidget)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
-        self.verticalLayout = QtWidgets.QVBoxLayout()
-        self.verticalLayout.setObjectName("verticalLayout")
-        self.la_dataFiles = QtWidgets.QLabel(self.widget_3)
+        self.dataManagerLayout = QtWidgets.QVBoxLayout()
+        self.dataManagerLayout.setObjectName("dataManagerLayout")
+        self.la_dataFiles = QtWidgets.QLabel(self.DataManagerWidget)
         self.la_dataFiles.setObjectName("la_dataFiles")
-        self.verticalLayout.addWidget(self.la_dataFiles)
-        self.lv_dataFiles = QtWidgets.QListView(self.widget_3)
-        self.lv_dataFiles.setObjectName("lv_dataFiles")
-        self.verticalLayout.addWidget(self.lv_dataFiles)
-        self.tabWidget_2 = QtWidgets.QTabWidget(self.widget_3)
+        self.dataManagerLayout.addWidget(self.la_dataFiles)
+        self.dataLoaderWidget = QtWidgets.QWidget(self.DataManagerWidget)
+        self.dataLoaderWidget.setObjectName("dataLoaderWidget")
+        self.dataManagerLayout.addWidget(self.dataLoaderWidget)
+        self.tabWidget_2 = QtWidgets.QTabWidget(self.DataManagerWidget)
         self.tabWidget_2.setObjectName("tabWidget_2")
         self.tab = QtWidgets.QWidget()
         self.tab.setObjectName("tab")
@@ -73,9 +80,9 @@ class Ui_grapherWidget(object):
         self.tab_2 = QtWidgets.QWidget()
         self.tab_2.setObjectName("tab_2")
         self.tabWidget_2.addTab(self.tab_2, "")
-        self.verticalLayout.addWidget(self.tabWidget_2)
-        self.verticalLayout_3.addLayout(self.verticalLayout)
-        self.gridLayout.addWidget(self.widget_3, 2, 1, 1, 1)
+        self.dataManagerLayout.addWidget(self.tabWidget_2)
+        self.verticalLayout_3.addLayout(self.dataManagerLayout)
+        self.gridLayout.addWidget(self.DataManagerWidget, 2, 1, 1, 1)
 
         self.retranslateUi(grapherWidget)
         self.tabWidget.setCurrentIndex(1)
@@ -88,7 +95,7 @@ class Ui_grapherWidget(object):
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_graph), _translate("grapherWidget", "Graph"))
         self.label.setText(_translate("grapherWidget", "Detected data"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_data), _translate("grapherWidget", "Data"))
-        self.la_dataFiles.setText(_translate("grapherWidget", "Data files"))
+        self.la_dataFiles.setText(_translate("grapherWidget", "Data Manager"))
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab), _translate("grapherWidget", "Tab 1"))
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_2), _translate("grapherWidget", "Tab 2"))
 

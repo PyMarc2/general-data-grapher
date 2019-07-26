@@ -72,7 +72,7 @@
     </widget>
    </item>
    <item row="2" column="1">
-    <widget class="QWidget" name="widget_3" native="true">
+    <widget class="QWidget" name="DataManagerWidget" native="true">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
        <horstretch>2</horstretch>
@@ -81,16 +81,16 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_3">
       <item>
-       <layout class="QVBoxLayout" name="verticalLayout">
+       <layout class="QVBoxLayout" name="dataManagerLayout">
         <item>
          <widget class="QLabel" name="la_dataFiles">
           <property name="text">
-           <string>Data files</string>
+           <string>Data Manager</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QListView" name="lv_dataFiles"/>
+         <widget class="QWidget" name="dataLoaderWidget" native="true"/>
         </item>
         <item>
          <widget class="QTabWidget" name="tabWidget_2">

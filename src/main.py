@@ -20,7 +20,7 @@ class App(QApplication):
         self.main_view.setWindowTitle("PyGrapher")
 
     def splash(self):
-        pixmap = QPixmap("pyg-icon.png")
+        pixmap = QPixmap("pyg-icon-3.png")
         smaller_pixmap = pixmap.scaled(300, 300, Qt.KeepAspectRatio, Qt.SmoothTransformation)
         splash = QSplashScreen(smaller_pixmap, Qt.WindowStaysOnTopHint)
         splash.show()
@@ -33,7 +33,7 @@ def main():
     ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(appID)
 
     app = App(sys.argv)
-    app.setWindowIcon(QIcon("pyg-icon.png"))
+    app.setWindowIcon(QIcon("pyg-icon-3.png"))
     sys.exit(app.exec_())
 
 

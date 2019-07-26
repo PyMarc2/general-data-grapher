@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QTableView, QApplication, QSizePolicy, QHeaderView, QWidget
+from PyQt5.QtWidgets import QTableView, QApplication, QSizePolicy, QHeaderView, QWidget, QVBoxLayout
 from PyQt5.QtCore import Qt, QAbstractTableModel, QObject
 import sys
 import logging
@@ -6,10 +6,21 @@ import logging
 log = logging.getLogger(__name__)
 
 
+class DataLoaderWidget(QWidget):
+    def __init__(self):
+        super(DataLoaderWidget, self).__init__()
+        self.tableWidget = QTableView()
+        self.tableModel = FormTableModel()
+        self.tableWidget.setModel(self.tableModel)
+        self.layout = QVBoxLayout()
+        self.setLayout(self.layout)
+        self.layout.addWidget(self.tableWidget)
+
+
 class FormTableModel(QAbstractTableModel):
     def __init__(self, parent=None):
         super(FormTableModel, self).__init__(parent)
-        self.headerText = ["DataSet Name", "Extension", "Location", "Plot" ]
+        self.headerText = ["DataSet Indicator", "DataSet Name", "Extension", "Plot"]
         self.data = [[]]
         self.rowAmount = 1
 
@@ -129,3 +140,4 @@ QTableWidget QTableCornerButton::section {
 
     def button_clicked(self, row):
         pass
+
