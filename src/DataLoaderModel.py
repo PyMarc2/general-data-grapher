@@ -2,6 +2,46 @@ from PyQt5.QtCore import pyqtSignal, QObject
 import unittest
 import os
 import re
+from tools.generalTools import *
+
+
+class DataFile(QObject):
+    def __init__(self, filepath):
+        super(DataFile, self).__init__()
+        self._content = {'filepath': '', 'name': '', 'extension': '', 'data': ''}
+
+        if checkRealPath(filepath):
+            self.update_content(filepath)
+
+        else:
+            del self
+
+    def update_content(self, filepath):
+        extension = re.search("(?<=\.)([a-zA-Z0-9_]+$)", filepath)
+        name = re.search("([a-zA-Z0-9_])+(?=\.[a-zA-Z0-9_]+$)", filepath)
+        with open(self._filePath, 'r') as file:
+            data = file.readlines()
+            print(data)
+            self._content['filepath'] = filepath
+            self._content['name'] = name
+            self._content['extension'] = extension
+            self._content['data'] = data
+
+    @property
+    def filePath(self):
+        return self.content['filepath']
+
+    @property
+    def name(self):
+        return self._content['name']
+
+    @property
+    def extension(self):
+        return self._content['extension']
+
+    @property
+    def data(self):
+        return self._content['data']
 
 
 class DataLoaderModel(QObject):
@@ -9,12 +49,12 @@ class DataLoaderModel(QObject):
 
     def __init__(self):
         super(DataLoaderModel, self).__init__()
-        self._dataFilesDict = {}
-        self._selectedDataFile = ''
+        self._dataFilesList = []
+        self._selectedDataFile = None
 
     @property
     def dataFilesDict(self):
-        return self._dataFilesDict
+        return self._dataFilesList
 
     @property
     def selectedDataFile(self):
@@ -22,28 +62,17 @@ class DataLoaderModel(QObject):
 
     @selectedDataFile.setter
     def selectedDataFile(self, value):
-        # do some filtering here
         self._selectedDataFile = value
 
-    def add_dataFile(self, absPath: str):
-        if absPath not in self._dataFilesDict.items():
-            number = len(self._dataFilesDict)
-            extension = re.search("(?<=\.)([a-zA-Z0-9_]+$)", absPath)
-            if extension is None:
-                raise NotImplementedError
-            extension = extension[0]
-            name = re.search("([a-zA-Z0-9_])+(?=\.[a-zA-Z0-9_]+$)", str(absPath))
-            if name is None:
-                raise NotImplementedError
-            name = name[0]
-            self._dataFilesDict["{}".format(number)] = {"name": "{}".format(name), "absolutePath": absPath,
-                                                            "extension": extension}
+    def add_dataFile(self, dataFile:DataFile):
+        if dataFile not in self._dataFilesList:
+            self._dataFilesList.append(dataFile)
             self.s_update_dataFileDict.emit()
         else:
             pass
 
     def delete_dataFile(self):
-        pass
+        del self._selectedDataFile
 
 
 class Test_DataLoaderModel(unittest.TestCase):

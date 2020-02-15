@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QLineEdit, QWidget, QDialog, QHBoxLayout, QPushButton, QLabel, QVBoxLayout, QDesktopWidget
+from PyQt5.QtWidgets import QLineEdit, QWidget, QDialog, QSplitter, QHBoxLayout, QPushButton, QLabel, QVBoxLayout, QDesktopWidget
 from PyQt5.Qt import QVariantAnimation, QSplashScreen, QSize, QEvent, QResizeEvent, QMouseEvent, QRectF, QSizeF
 from PyQt5.QtCore import pyqtSignal, pyqtSlot, QObject, QEasingCurve, QTimer, QPoint, Qt, QTimer
 from PyQt5.QtGui import QColor, QPixmap
@@ -38,6 +38,7 @@ class CustomLineEdit(QLineEdit):
 
 class CustomQBar(QWidget):
     pass
+
 
 #   |=========================================|
 #   |                 ANIMATION               |
@@ -193,6 +194,19 @@ class LoadingDotsSplash(QSplashScreen):
 #   |=========================================|
 #   |                 QWINDOWS                |
 #   |=========================================|
+
+
+class QResizableWidget(QWidget):
+    def __init__(self, widgets):
+        super(QResizableWidget, self).__init__()
+        layout = QVBoxLayout()
+        splitter = QSplitter(QtCore.Qt.Horizontal)
+        splitter.setStretchFactor(1, 1)
+        for widget in widgets:
+            splitter.addWidget(widget)
+        splitter.setSizes([200, 200])
+        layout.addWidget(splitter)
+        self.setLayout(layout)
 
 
 class QRoundedWindow(QWidget):
