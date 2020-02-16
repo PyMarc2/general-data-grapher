@@ -1,5 +1,5 @@
 from PyQt5.QtWidgets import QMainWindow
-from gui.views.mainGrapherView import MainGraphView
+from gui.views.mainGrapherView import WorkspaceManagerView
 import os
 from PyQt5 import uic
 
@@ -11,7 +11,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
         self.setupUi(self)
-        self.mainGrapher = MainGraphView()
+        self.mainGrapher = WorkspaceManagerView()
         self.setCentralWidget(self.mainGrapher)
 
 

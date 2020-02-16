@@ -6,9 +6,6 @@ from gui.widgets.pyqtGraphWidget import PyqtGraphWidget
 import os
 from PyQt5 import uic
 
-mainGrapherViewPath = os.path.dirname(os.path.realpath(__file__)) + '\\mainGrapherViewUi.ui'
-Ui_mainGrapherView, QtBaseClass = uic.loadUiType(mainGrapherViewPath)
-
 
 class WorkspaceManagerView(QWidget):
     def __init__(self):
@@ -31,7 +28,7 @@ class WorkspaceManagerView(QWidget):
 
 
         mainTabWidget.addTab(graphSplitter, 'Workspace 1')
-        mainTabWidget.addTab(dataSplitter, 'Workspace 2')
+        mainTabWidget.addTab(graphSplitter, 'Workspace 2')
 
         layout.addWidget(mainTabWidget)
         self.setLayout(layout)
