@@ -10,9 +10,9 @@ mainGrapherViewPath = os.path.dirname(os.path.realpath(__file__)) + '\\mainGraph
 Ui_mainGrapherView, QtBaseClass = uic.loadUiType(mainGrapherViewPath)
 
 
-class MainGraphView(QWidget):
+class WorkspaceManagerView(QWidget):
     def __init__(self):
-        super(MainGraphView, self).__init__()
+        super(WorkspaceManagerView, self).__init__()
         self.setupUi()
 
     def setupUi(self):
@@ -29,13 +29,9 @@ class MainGraphView(QWidget):
         graphSplitter.addWidget(pyqtGraphWidget)
         graphSplitter.addWidget(graphOptionsWidget)
 
-        dataSplitter = QSplitter()
-        dataSplitter.setOrientation(Qt.Horizontal)
-        dataSplitter.addWidget(dataViewerWidget)
-        dataSplitter.addWidget(dataManagerWidget)
 
-        mainTabWidget.addTab(graphSplitter, 'Graph Tab')
-        mainTabWidget.addTab(dataSplitter, 'Data Tab')
+        mainTabWidget.addTab(graphSplitter, 'Workspace 1')
+        mainTabWidget.addTab(dataSplitter, 'Workspace 2')
 
         layout.addWidget(mainTabWidget)
         self.setLayout(layout)

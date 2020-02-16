@@ -10,8 +10,9 @@ dataManagerWidgetPath = os.path.dirname(os.path.realpath(__file__)) + '\\dataMan
 Ui_dataManagerWidget, QtBaseClass = uic.loadUiType(dataManagerWidgetPath)
 
 
-class DataManagerWidget(QWidget, Ui_dataManagerWidget):
+class DataManagerWidget(QWidget, Ui_dataManagerWidget): # type: class
     def __init__(self):
+
         super(DataManagerWidget, self).__init__()
         self.setupUi(self)
 

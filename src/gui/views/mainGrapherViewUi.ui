@@ -23,16 +23,16 @@
       </sizepolicy>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="tab_graph">
       <attribute name="title">
-       <string>Graph</string>
+       <string>Workspace 1</string>
       </attribute>
      </widget>
      <widget class="QWidget" name="tab_data">
       <attribute name="title">
-       <string>Data</string>
+       <string>Workspace 2</string>
       </attribute>
       <layout class="QHBoxLayout" name="horizontalLayout"/>
      </widget>
