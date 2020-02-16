@@ -1,7 +1,6 @@
 from PyQt5.QtWidgets import QWidget, QLabel, QVBoxLayout, QTabWidget, QFrame, QSplitter
 from PyQt5.QtCore import pyqtSignal, Qt
-from gui.widgets.dataManagerWidget import DataManagerWidget
-from gui.widgets.graphOptionsWidget import GraphOptionsWidget
+from gui.widgets.graphManagerWidget import GraphManagerWidget
 from gui.widgets.pyqtGraphWidget import PyqtGraphWidget
 import os
 from PyQt5 import uic
@@ -16,10 +15,8 @@ class WorkspaceManagerView(QWidget):
         layout = QVBoxLayout()
         mainTabWidget = QTabWidget()
 
-        graphOptionsWidget = GraphOptionsWidget()
+        graphOptionsWidget = GraphManagerWidget()
         pyqtGraphWidget = PyqtGraphWidget()
-        dataViewerWidget = DataManagerWidget()
-        dataManagerWidget = DataManagerWidget()
 
         graphSplitter = QSplitter()
         graphSplitter.setOrientation(Qt.Horizontal)

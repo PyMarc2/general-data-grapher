@@ -1,16 +1,26 @@
 import os
 from PyQt5 import uic
+import os
 from PyQt5.QtWidgets import QTableView, QApplication, QSizePolicy, QHeaderView, QWidget, QVBoxLayout
 from PyQt5.QtCore import Qt, QAbstractTableModel, QObject
 import sys
+import h5py
 import logging
 
 log = logging.getLogger(__name__)
-dataManagerWidgetPath = os.path.dirname(os.path.realpath(__file__)) + '\\dataManagerWidgetUi.ui'
-Ui_dataManagerWidget, QtBaseClass = uic.loadUiType(dataManagerWidgetPath)
+graphOptionsWidgetPath = os.path.dirname(os.path.realpath(__file__)) + '\\graphManagerWidgetUi.ui'
+Ui_graphOptionsWidget, QtBaseClass = uic.loadUiType(graphOptionsWidgetPath)
 
 
-class DataManagerWidget(QWidget, Ui_dataManagerWidget): # type: class
+class GraphManagerWidget(QWidget, Ui_graphOptionsWidget):
+    def __init__(self):
+        super(GraphManagerWidget, self).__init__()
+        self.setupUi(self)
+        self.worspaceHDF5 = {}
+        self.graphSettings = {}
+
+
+class DataManagerWidget(QWidget): # type: class
     def __init__(self):
 
         super(DataManagerWidget, self).__init__()
