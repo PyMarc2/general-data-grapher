@@ -1,5 +1,5 @@
 from PyQt5.QtWidgets import QMainWindow
-from gui.views.mainGrapherView import WorkspaceManagerView
+from gui.views.workspaceManagerView import WorkspaceManagerView
 import os
 from PyQt5 import uic
 

@@ -12,7 +12,7 @@ graphOptionsWidgetPath = os.path.dirname(os.path.realpath(__file__)) + '\\graphM
 Ui_graphOptionsWidget, QtBaseClass = uic.loadUiType(graphOptionsWidgetPath)
 
 
-class GraphManagerWidget(QWidget, Ui_graphOptionsWidget):
+class GraphManagerWidget(QWidget, Ui_graphOptionsWidget): # type: class
     def __init__(self):
         super(GraphManagerWidget, self).__init__()
         self.setupUi(self)

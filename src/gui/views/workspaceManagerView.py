@@ -10,22 +10,21 @@ class WorkspaceManagerView(QWidget):
     def __init__(self):
         super(WorkspaceManagerView, self).__init__()
         self.setupUi()
+        self.activeWorkspace = []
 
     def setupUi(self):
         layout = QVBoxLayout()
         mainTabWidget = QTabWidget()
 
-        graphOptionsWidget = GraphManagerWidget()
+        graphManagerWidget = GraphManagerWidget()
         pyqtGraphWidget = PyqtGraphWidget()
 
         graphSplitter = QSplitter()
         graphSplitter.setOrientation(Qt.Horizontal)
         graphSplitter.addWidget(pyqtGraphWidget)
-        graphSplitter.addWidget(graphOptionsWidget)
-
+        graphSplitter.addWidget(graphManagerWidget)
 
         mainTabWidget.addTab(graphSplitter, 'Workspace 1')
-        mainTabWidget.addTab(graphSplitter, 'Workspace 2')
 
         layout.addWidget(mainTabWidget)
         self.setLayout(layout)
