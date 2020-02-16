@@ -86,7 +86,14 @@
            </widget>
           </item>
           <item row="1" column="2">
-           <widget class="QLineEdit" name="LE_xAmountOfDigits"/>
+           <widget class="QLineEdit" name="LE_xAmountOfDigits">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
           </item>
           <item row="2" column="1">
            <widget class="QComboBox" name="CoB_yNumberFormat">
@@ -108,7 +115,14 @@
            </widget>
           </item>
           <item row="2" column="2">
-           <widget class="QLineEdit" name="LE_yAmountOfDigits"/>
+           <widget class="QLineEdit" name="LE_yAmountOfDigits">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
           </item>
           <item row="0" column="1">
            <widget class="QLabel" name="LA_typeNumberFormat">
@@ -126,8 +140,51 @@
          </layout>
         </widget>
        </item>
-       <item row="0" column="0">
+       <item row="1" column="1">
+        <widget class="QGroupBox" name="GB_grid">
+         <property name="title">
+          <string>Grid</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_6">
+          <item row="0" column="0">
+           <widget class="QCheckBox" name="ChB_enableXGrid">
+            <property name="text">
+             <string>Enable X-grid</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QCheckBox" name="ChB_enableYGrid">
+            <property name="text">
+             <string>Enable Y-grid</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="LA_gridOpacity">
+            <property name="text">
+             <string>Grid opcacity</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QSlider" name="HZ_gridOpacity">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="0" column="0" colspan="2">
         <widget class="QGroupBox" name="GB_axisScaling">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="title">
           <string>Axis Scaling</string>
          </property>
@@ -239,8 +296,14 @@
          </layout>
         </widget>
        </item>
-       <item row="2" column="0">
+       <item row="2" column="0" colspan="2">
         <widget class="QGroupBox" name="GB_axisFormat">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="title">
           <string>Axis format</string>
          </property>
