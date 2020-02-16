@@ -39,5 +39,6 @@ class MainGraphView(QWidget):
 
         layout.addWidget(mainTabWidget)
         self.setLayout(layout)
+        self.setAcceptDrops(True)
 
 

@@ -74,38 +74,3 @@ class DataLoaderModel(QObject):
     def delete_dataFile(self):
         del self._selectedDataFile
 
-
-class Test_DataLoaderModel(unittest.TestCase):
-    def setUp(self):
-        self.DataLoader = DataLoaderModel()
-
-    def test_regex_filename(self):
-        string = "C:\\test\\testFile.txt"
-        name = re.search("([a-zA-Z0-9_])+(?=\.[a-zA-Z0-9_]+$)", string)
-        nameToMatch = "testFile"
-        self.assertEqual(nameToMatch, name[0])
-
-    def test_add_dataFile___basic(self):
-        self.DataLoader.add_dataFile("C://users//nothing//hello0.png")
-        testDict = {"0": {"name": "hello0", "absolutePath": "C://users//nothing//hello0.png", "extension": "png"}}
-        self.assertEqual(testDict, self.DataLoader._dataFilesDict)
-
-    def test_add_datafile___not_empty(self):
-        self.DataLoader.add_dataFile("C://users//nothing//hello0.png")
-        self.DataLoader.add_dataFile("C://users//nothing//hello1.png")
-        testDict = {"0": {"name": "hello0", "absolutePath": "C://users//nothing//hello0.png", "extension": "png"},
-                    "1": {"name": "hello1", "absolutePath": "C://users//nothing//hello1.png", "extension": "png"}}
-        self.assertEqual(testDict, self.DataLoader._dataFilesDict)
-
-    def test_add_datafile___with_real_files(self):
-        pathToTest0 = os.path.abspath("\\test\\testFile0.txt")
-        pathToTest1 = os.path.abspath("/test/testFile1.txt")
-        self.DataLoader.add_dataFile(pathToTest0)
-        self.DataLoader.add_dataFile(pathToTest1)
-        testDict = {"0": {"name": "testFile0", "absolutePath": pathToTest0, "extension": "txt"},
-                    "1": {"name": "testFile1", "absolutePath": pathToTest1, "extension": "txt"}}
-        self.assertEqual(testDict, self.DataLoader._dataFilesDict)
-
-
-if __name__ == "__main__":
-    unittest.main()
